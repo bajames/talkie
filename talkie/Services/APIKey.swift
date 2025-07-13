@@ -1,13 +1,5 @@
-
 import Foundation
 
-enum APIKey {
-    static var gemini: String {
-        guard let path = Bundle.main.path(forResource: "credentials", ofType: "plist"),
-              let dict = NSDictionary(contentsOfFile: path),
-              let key = dict["GeminiAPIKey"] as? String else {
-            fatalError("Could not find or parse credentials.plist. Please make sure it exists and contains your GeminiAPIKey.")
-        }
-        return key
-    }
+struct APIKey {
+    static let googleDrive = "AIzaSyAFgIcrdZpm0SBHoQlJjO5-kHS15NE6EYE"
 }

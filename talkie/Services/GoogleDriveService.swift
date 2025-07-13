@@ -7,6 +7,7 @@ class GoogleDriveService {
 
     init() {
         self.service.authorizer = GIDSignIn.sharedInstance.currentUser?.fetcherAuthorizer
+        self.service.apiKey = APIKey.googleDrive
     }
 
     func findOrCreateFolder(name: String, completion: @escaping (String?, Error?) -> Void) {
