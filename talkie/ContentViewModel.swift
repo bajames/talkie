@@ -1,3 +1,4 @@
+
 import Foundation
 import Combine
 import AVFoundation
@@ -50,7 +51,9 @@ class ContentViewModel: ObservableObject {
             // Convert Data to AVAudioPCMBuffer
             let pcmBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: UInt32(data.count) / audioFormat.streamDescription.pointee.mBytesPerFrame)!
             pcmBuffer.frameLength = pcmBuffer.frameCapacity
-            data.copyBytes(to: pcmBuffer.floatChannelData![0], count: data.count)
+            
+            // Corrected line: Bind memory to UInt8 before copying
+            data.copyBytes(to: pcmBuffer.floatChannelData![0].withMemoryRebound(to: UInt8.self, capacity: data.count) { $0 }, count: data.count)
             
             try audioFile.write(from: pcmBuffer)
             status = "Recording saved to: \(filename.lastPathComponent)"
