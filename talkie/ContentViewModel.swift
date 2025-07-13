@@ -83,7 +83,8 @@ class ContentViewModel: ObservableObject {
             return
         }
 
-        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [weak self] result, error in
+        let additionalScopes = ["https://www.googleapis.com/auth/drive.file"]
+        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController, hint: nil, additionalScopes: additionalScopes) { [weak self] result, error in
             guard let self = self else { return }
             if let error = error {
                 self.status = "Sign-in error: \(error.localizedDescription)"
