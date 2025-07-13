@@ -14,7 +14,15 @@ struct ContentView: View {
 
             Spacer()
 
+            if viewModel.isProcessing {
+                ProgressView()
+                    .padding()
+            }
+
             if viewModel.isSessionActive {
+                Text(formatTime(viewModel.elapsedTime))
+                    .font(.largeTitle)
+                    .padding()
                 Button(action: {
                     viewModel.stopSession()
                 }) {
@@ -45,6 +53,12 @@ struct ContentView: View {
         .onAppear {
             viewModel.onAppear()
         }
+    }
+
+    private func formatTime(_ interval: TimeInterval) -> String {
+        let minutes = Int(interval) / 60
+        let seconds = Int(interval) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 }
 
