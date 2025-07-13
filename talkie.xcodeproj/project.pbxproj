@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		17AB8E202E234B64006EB02F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E1F2E234B64006EB02F /* GoogleSignIn */; };
+		17AB8E222E234B64006EB02F /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E212E234B64006EB02F /* GoogleSignInSwift */; };
+		17AB8E252E234C85006EB02F /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E242E234C85006EB02F /* GoogleAPIClientForRESTCore */; };
+		17AB8E272E234C85006EB02F /* GoogleAPIClientForREST_APIGateway in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E262E234C85006EB02F /* GoogleAPIClientForREST_APIGateway */; };
+		17AB8E292E234C85006EB02F /* GoogleAPIClientForREST_APIManagement in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E282E234C85006EB02F /* GoogleAPIClientForREST_APIManagement */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		17997E822E233F7C00823705 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17AB8E202E234B64006EB02F /* GoogleSignIn in Frameworks */,
+				17AB8E272E234C85006EB02F /* GoogleAPIClientForREST_APIGateway in Frameworks */,
+				17AB8E252E234C85006EB02F /* GoogleAPIClientForRESTCore in Frameworks */,
+				17AB8E292E234C85006EB02F /* GoogleAPIClientForREST_APIManagement in Frameworks */,
+				17AB8E222E234B64006EB02F /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +125,11 @@
 			);
 			name = talkie;
 			packageProductDependencies = (
+				17AB8E1F2E234B64006EB02F /* GoogleSignIn */,
+				17AB8E212E234B64006EB02F /* GoogleSignInSwift */,
+				17AB8E242E234C85006EB02F /* GoogleAPIClientForRESTCore */,
+				17AB8E262E234C85006EB02F /* GoogleAPIClientForREST_APIGateway */,
+				17AB8E282E234C85006EB02F /* GoogleAPIClientForREST_APIManagement */,
 			);
 			productName = talkie;
 			productReference = 17997E742E233F7B00823705 /* talkie.app */;
@@ -195,6 +213,10 @@
 			);
 			mainGroup = 17997E6B2E233F7B00823705;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				17AB8E1E2E234B64006EB02F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				17AB8E232E234C85006EB02F /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 17997E752E233F7B00823705 /* Products */;
 			projectDirPath = "";
@@ -550,6 +572,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17AB8E1E2E234B64006EB02F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		17AB8E232E234C85006EB02F /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/google-api-objectivec-client-for-rest";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17AB8E1F2E234B64006EB02F /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17AB8E1E2E234B64006EB02F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		17AB8E212E234B64006EB02F /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17AB8E1E2E234B64006EB02F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		17AB8E242E234C85006EB02F /* GoogleAPIClientForRESTCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17AB8E232E234C85006EB02F /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForRESTCore;
+		};
+		17AB8E262E234C85006EB02F /* GoogleAPIClientForREST_APIGateway */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17AB8E232E234C85006EB02F /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_APIGateway;
+		};
+		17AB8E282E234C85006EB02F /* GoogleAPIClientForREST_APIManagement */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17AB8E232E234C85006EB02F /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_APIManagement;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 17997E6C2E233F7B00823705 /* Project object */;
 }
