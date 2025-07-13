@@ -36,6 +36,20 @@ struct ContentView: View {
                 }
                 .padding()
             } else {
+                if !viewModel.isSignedIn {
+                    Button(action: {
+                        viewModel.signIn()
+                    }) {
+                        Text("Sign In with Google")
+                            .font(.headline)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                    }
+                    .padding()
+                }
                 Button(action: {
                     viewModel.startSession()
                 }) {
@@ -48,6 +62,7 @@ struct ContentView: View {
                         .cornerRadius(12)
                 }
                 .padding()
+                .disabled(!viewModel.isSignedIn)
             }
         }
         .onAppear {

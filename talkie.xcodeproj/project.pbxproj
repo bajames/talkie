@@ -35,6 +35,7 @@
 		17997E742E233F7B00823705 /* talkie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17997E812E233F7C00823705 /* talkieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talkieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17997E8B2E233F7C00823705 /* talkieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talkieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+        "17AB8E2A2E234C85006EB02F" /* GoogleDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkie/Services/GoogleDriveService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -258,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+                "17AB8E2A2E234C85006EB02F /* GoogleDriveService.swift in Sources */",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +426,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                INFOPLIST_KEY_CFBundleURLTypes = (
+                    {
+                        CFBundleURLSchemes = (
+                            "com.googleusercontent.apps.522475355986-lrailc79pvn70pcj71eesq62jk13irji",
+                        );
+                    },
+                );
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
