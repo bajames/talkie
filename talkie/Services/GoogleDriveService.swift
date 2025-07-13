@@ -1,6 +1,6 @@
 import Foundation
 import GoogleSignIn
-import GoogleAPIClientForREST_Drive
+import GoogleAPIClientForREST
 
 class GoogleDriveService {
     private let service = GTLRDriveService()
