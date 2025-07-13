@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171A6B842E243E9B00BD191F /* GoogleAPIClientForREST_Drive in Frameworks */ = {isa = PBXBuildFile; productRef = 171A6B832E243E9B00BD191F /* GoogleAPIClientForREST_Drive */; };
 		17AB8E202E234B64006EB02F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E1F2E234B64006EB02F /* GoogleSignIn */; };
 		17AB8E222E234B64006EB02F /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E212E234B64006EB02F /* GoogleSignInSwift */; };
 		17AB8E252E234C85006EB02F /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 17AB8E242E234C85006EB02F /* GoogleAPIClientForRESTCore */; };
@@ -35,7 +36,6 @@
 		17997E742E233F7B00823705 /* talkie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17997E812E233F7C00823705 /* talkieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talkieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17997E8B2E233F7C00823705 /* talkieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talkieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-        "17AB8E2A2E234C85006EB02F" /* GoogleDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkie/Services/GoogleDriveService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -61,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171A6B842E243E9B00BD191F /* GoogleAPIClientForREST_Drive in Frameworks */,
 				17AB8E202E234B64006EB02F /* GoogleSignIn in Frameworks */,
 				17AB8E272E234C85006EB02F /* GoogleAPIClientForREST_APIGateway in Frameworks */,
 				17AB8E252E234C85006EB02F /* GoogleAPIClientForRESTCore in Frameworks */,
@@ -86,12 +87,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		171A6B822E243E9A00BD191F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		17997E6B2E233F7B00823705 = {
 			isa = PBXGroup;
 			children = (
 				17997E762E233F7B00823705 /* talkie */,
 				17997E842E233F7C00823705 /* talkieTests */,
 				17997E8E2E233F7C00823705 /* talkieUITests */,
+				171A6B822E243E9A00BD191F /* Frameworks */,
 				17997E752E233F7B00823705 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +140,7 @@
 				17AB8E242E234C85006EB02F /* GoogleAPIClientForRESTCore */,
 				17AB8E262E234C85006EB02F /* GoogleAPIClientForREST_APIGateway */,
 				17AB8E282E234C85006EB02F /* GoogleAPIClientForREST_APIManagement */,
+				171A6B832E243E9B00BD191F /* GoogleAPIClientForREST_Drive */,
 			);
 			productName = talkie;
 			productReference = 17997E742E233F7B00823705 /* talkie.app */;
@@ -259,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-                "17AB8E2A2E234C85006EB02F /* GoogleDriveService.swift in Sources */",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,18 +430,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleURLTypes = "{\n    CFBundleURLSchemes =     (\n        \"com.googleusercontent.apps.522475355986-lrailc79pvn70pcj71eesq62jk13irji\"\n    );\n}";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-                INFOPLIST_KEY_CFBundleURLTypes = (
-                    {
-                        CFBundleURLSchemes = (
-                            "com.googleusercontent.apps.522475355986-lrailc79pvn70pcj71eesq62jk13irji",
-                        );
-                    },
-                );
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,6 +605,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		171A6B832E243E9B00BD191F /* GoogleAPIClientForREST_Drive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17AB8E232E234C85006EB02F /* XCRemoteSwiftPackageReference "google-api-objectivec-client-for-rest" */;
+			productName = GoogleAPIClientForREST_Drive;
+		};
 		17AB8E1F2E234B64006EB02F /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 17AB8E1E2E234B64006EB02F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
