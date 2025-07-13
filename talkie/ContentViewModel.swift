@@ -83,7 +83,8 @@ class ContentViewModel: ObservableObject {
             return
         }
 
-        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [weak self] result, error in
+        let driveScope = "https://www.googleapis.com/auth/drive.file"
+        GIDSignIn.sharedInstance.addScopes([driveScope], presenting: rootViewController) { [weak self] result, error in
             guard let self = self else { return }
             if let error = error {
                 self.status = "Sign-in error: \(error.localizedDescription)"
@@ -96,6 +97,13 @@ class ContentViewModel: ObservableObject {
 
             self.status = "Signed in as \(user.profile?.name ?? "Unknown")"
             self.isSignedIn = true
+            self.googleDriveService = GoogleDriveService()
         }
+    }
+
+    func signOut() {
+        GIDSignIn.sharedInstance.signOut()
+        isSignedIn = false
+        status = "Signed out."
     }
 }

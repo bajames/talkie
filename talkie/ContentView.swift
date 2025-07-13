@@ -63,6 +63,21 @@ struct ContentView: View {
                 }
                 .padding()
                 .disabled(!viewModel.isSignedIn)
+
+                if viewModel.isSignedIn {
+                    Button(action: {
+                        viewModel.signOut()
+                    }) {
+                        Text("Sign Out")
+                            .font(.headline)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.gray)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                    }
+                    .padding()
+                }
             }
         }
         .onAppear {
