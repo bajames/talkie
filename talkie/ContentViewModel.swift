@@ -1,4 +1,3 @@
-
 import Foundation
 import Combine
 import AVFoundation
@@ -34,37 +33,11 @@ class ContentViewModel: ObservableObject {
 
     func stopSession() {
         isSessionActive = false
-        status = "Saving recording..."
-        let recordedData = audioService.stopRecordingAndReturnData()
-        saveAudioToFile(data: recordedData)
-    }
-
-    private func saveAudioToFile(data: Data) {
-        let filename = getDocumentsDirectory().appendingPathComponent("recording_\(UUID().uuidString).aiff")
-
-        // Create an audio file writer for AIFF format
-        let audioFormat = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 16000, channels: 1, interleaved: false)!
-        
-        do {
-            let audioFile = try AVAudioFile(forWriting: filename, settings: audioFormat.settings)
-            
-            // Convert Data to AVAudioPCMBuffer
-            let pcmBuffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: UInt32(data.count) / audioFormat.streamDescription.pointee.mBytesPerFrame)!
-            pcmBuffer.frameLength = pcmBuffer.frameCapacity
-            
-            // Corrected line: Bind memory to UInt8 before copying
-            data.copyBytes(to: pcmBuffer.floatChannelData![0].withMemoryRebound(to: UInt8.self, capacity: data.count) { $0 }, count: data.count)
-            
-            try audioFile.write(from: pcmBuffer)
-            status = "Recording saved to: \(filename.lastPathComponent)"
-            print("Recording saved to: \(filename.path)")
-        } catch {
+        if let recordedURL = audioService.stopRecordingAndReturnURL() {
+            status = "Recording saved to: \(recordedURL.lastPathComponent)"
+            print("Recording saved to: \(recordedURL.path)")
+        } else {
             status = "Failed to save recording."
-            print("Failed to save recording: \(error.localizedDescription)")
         }
-    }
-
-    private func getDocumentsDirectory() -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
 }
