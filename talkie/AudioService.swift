@@ -22,7 +22,7 @@ class AudioService: NSObject, AVAudioRecorderDelegate {
 
     func startRecording() {
         do {
-            try audioSession.setCategory(.record, mode: .default, options: .defaultToSpeaker)
+            try audioSession.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
             try audioSession.setActive(true)
 
             let filename = getDocumentsDirectory().appendingPathComponent("recording_\(UUID().uuidString).aiff")
