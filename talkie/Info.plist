@@ -15,5 +15,7 @@
         </array>
       </dict>
     </array>
+    <key>CPTemplateApplicationSceneClassName</key>
+    <string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
 </dict>
 </plist>
