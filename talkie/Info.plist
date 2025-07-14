@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>GIDClientID</key>
-    <string>522475355986-lrailc79pvn70pcj71eesq62jk13irji.apps.googleusercontent.com</string>
+	<key>GIDClientID</key>
+	<string>522475355986-lrailc79pvn70pcj71eesq62jk13irji.apps.googleusercontent.com</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Record Audio for keeping notes</string>
     <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -15,4 +17,3 @@
     </array>
 </dict>
 </plist>
-
