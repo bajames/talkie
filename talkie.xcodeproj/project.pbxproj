@@ -445,6 +445,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = talkie/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = talkie/talkie.entitlements;
 				INFOPLIST_KEY_CFBundleURLTypes = "{\n    CFBundleURLSchemes =     (\n        \"com.googleusercontent.apps.522475355986-lrailc79pvn70pcj71eesq62jk13irji\"\n    );\n}";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

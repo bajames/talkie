@@ -17,5 +17,7 @@
     </array>
     <key>CPTemplateApplicationSceneClassName</key>
     <string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
+    <key>CPAllDomains</key>
+    <true/>
 </dict>
 </plist>
