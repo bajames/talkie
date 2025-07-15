@@ -7,8 +7,10 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didConnect interfaceController: CPInterfaceController) {
         self.interfaceController = interfaceController
 
-        let gridTemplate = CPGridTemplate(title: "Talkie", gridButtons: [])
-        interfaceController.setRootTemplate(gridTemplate, animated: true)
+        let item = CPListItem(text: "Hello", detailText: "World")
+        let section = CPListSection(items: [item])
+        let listTemplate = CPListTemplate(title: "Talkie", sections: [section])
+        interfaceController.setRootTemplate(listTemplate, animated: true)
     }
 
     func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didDisconnect interfaceController: CPInterfaceController) {
