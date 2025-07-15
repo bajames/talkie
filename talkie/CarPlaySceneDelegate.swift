@@ -16,4 +16,9 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didDisconnect interfaceController: CPInterfaceController) {
         self.interfaceController = nil
     }
+
+    func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didSelect listTemplate: CPListTemplate, item: CPListItem, completionHandler: @escaping () -> Void) {
+        print("Selected item: \(item.text ?? "")")
+        completionHandler()
+    }
 }
