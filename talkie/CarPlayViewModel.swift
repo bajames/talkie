@@ -12,22 +12,17 @@ class CarPlayViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
 
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(userSignedIn), name: .GIDSignInStateDidChange, object: nil)
         updateSignInState()
     }
 
     func updateSignInState() {
-        self.isSignedIn = GIDSignIn.sharedInstance.currentUser != nil
+        self.isSignedIn = SharedUserDefaults.shared?.bool(forKey: SharedUserDefaults.isSignedInKey) ?? false
         self.googleDriveService = GoogleDriveService()
         if !self.isSignedIn {
             self.status = "Please sign in on your phone to start recording."
         } else {
             self.status = "Ready to record."
         }
-    }
-
-    @objc private func userSignedIn() {
-        updateSignInState()
     }
 
     func startRecording() {

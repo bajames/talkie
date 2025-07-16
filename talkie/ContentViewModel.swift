@@ -17,6 +17,7 @@ class ContentViewModel: ObservableObject {
 
     func onAppear() {
         requestMicrophonePermission()
+        self.isSignedIn = SharedUserDefaults.shared?.bool(forKey: SharedUserDefaults.isSignedInKey) ?? false
     }
 
     private func requestMicrophonePermission() {
@@ -88,16 +89,19 @@ class ContentViewModel: ObservableObject {
             guard let self = self else { return }
             if let error = error {
                 self.status = "Sign-in error: \(error.localizedDescription)"
+                SharedUserDefaults.shared?.set(false, forKey: SharedUserDefaults.isSignedInKey)
                 return
             }
             guard let user = result?.user else {
                 self.status = "Sign-in error: User not found."
+                SharedUserDefaults.shared?.set(false, forKey: SharedUserDefaults.isSignedInKey)
                 return
             }
 
             self.status = "Signed in as \(user.profile?.name ?? "Unknown")"
             self.isSignedIn = true
             self.googleDriveService = GoogleDriveService()
+            SharedUserDefaults.shared?.set(true, forKey: SharedUserDefaults.isSignedInKey)
         }
     }
 
@@ -105,5 +109,6 @@ class ContentViewModel: ObservableObject {
         GIDSignIn.sharedInstance.signOut()
         isSignedIn = false
         status = "Signed out."
+        SharedUserDefaults.shared?.set(false, forKey: SharedUserDefaults.isSignedInKey)
     }
 }
