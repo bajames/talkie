@@ -21,7 +21,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
         viewModel.updateSignInState()
     }
 
-    func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didDisconnect interfaceController: CPInterfaceController) {
+    func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didDisconnectInterfaceController interfaceController: CPInterfaceController) {
         self.interfaceController = nil
     }
 
@@ -32,17 +32,17 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
             let item = CPListItem(text: "Please sign in", detailText: "Open the app on your phone to sign in.")
             let section = CPListSection(items: [item])
             let listTemplate = CPListTemplate(title: "Talkie", sections: [section])
-            interfaceController?.setRootTemplate(listTemplate, animated: true)
+            interfaceController?.setRootTemplate(listTemplate, animated: true, completion: nil)
         }
     }
 
     private func updateRecordingTemplate() {
         let title = viewModel.isRecording ? "Recording..." : "Ready to Record"
-        let recordButton = CPGridButton(title: viewModel.isRecording ? "Stop" : "Record", image: UIImage(systemName: "mic.fill")!) { [weak self] _ in
+        let recordButton = CPGridButton(title: viewModel.isRecording ? "Stop" : "Record", image: UIImage(systemName: "mic.fill")!, handler: { [weak self] _ in
             self?.viewModel.isRecording ?? false ? self?.viewModel.stopRecording() : self?.viewModel.startRecording()
             self?.updateRecordingTemplate()
-        }
+        })
         let gridTemplate = CPGridTemplate(title: title, gridButtons: [recordButton])
-        interfaceController?.setRootTemplate(gridTemplate, animated: true)
+        interfaceController?.setRootTemplate(gridTemplate, animated: true, completion: nil)
     }
 }
