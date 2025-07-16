@@ -38,7 +38,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
 
     private func updateRecordingTemplate() {
         let title = viewModel.isRecording ? "Recording..." : "Ready to Record"
-        let recordButton = CPGridButton(title: viewModel.isRecording ? "Stop" : "Record", image: UIImage(systemName: "mic.fill")!, handler: { [weak self] _ in
+        let recordButton = CPGridButton(titleVariants: [viewModel.isRecording ? "Stop" : "Record"], image: UIImage(systemName: "mic.fill")!, handler: { [weak self] _ in
             self?.viewModel.isRecording ?? false ? self?.viewModel.stopRecording() : self?.viewModel.startRecording()
             self?.updateRecordingTemplate()
         })
