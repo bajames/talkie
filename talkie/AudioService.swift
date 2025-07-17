@@ -9,14 +9,11 @@ class AudioService: NSObject, AVAudioRecorderDelegate {
     }
     private var currentRecordingURL: URL?
 
-    // Define recording settings for AIFF format
+    // Define recording settings for MP3 format
     private let recordingSettings: [String: Any] = [
-        AVFormatIDKey: kAudioFormatLinearPCM,
-        AVSampleRateKey: 16000,
+        AVFormatIDKey: kAudioFormatMPEG4AAC,
+        AVSampleRateKey: 44100,
         AVNumberOfChannelsKey: 1,
-        AVLinearPCMBitDepthKey: 16,
-        AVLinearPCMIsBigEndianKey: false,
-        AVLinearPCMIsFloatKey: false,
         AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
     ]
 
@@ -25,7 +22,7 @@ class AudioService: NSObject, AVAudioRecorderDelegate {
             try audioSession.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
             try audioSession.setActive(true)
 
-            let filename = getDocumentsDirectory().appendingPathComponent("recording_\(UUID().uuidString).aiff")
+            let filename = getDocumentsDirectory().appendingPathComponent("recording_\(UUID().uuidString).mp3")
             currentRecordingURL = filename
 
             audioRecorder = try AVAudioRecorder(url: filename, settings: recordingSettings)
